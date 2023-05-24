@@ -32,15 +32,18 @@ export const MainComp = () => {
 						{data[0].h3}
 						</h3>
 						<h4 className='text-yellow-400 font-light mt-10'>
-						{data[0].p_title}
+						{data[0].h4}
 						</h4>
+						<p className='text-gray-200 font-light mt-6 uppercase'>
+						{data[0].p}
+						</p>
+						<p className='text-white font-light mt-6 text-sm'>
+						{data[0].info}
+						</p>
 					</div>
 
 					<ServiceComp/>
 					
-
-
-
 					<div className="flex text-white text-lg justify-end mt-32">
 						{
 							state.isAdmin ?

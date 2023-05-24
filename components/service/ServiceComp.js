@@ -73,62 +73,64 @@ export const ServiceComp = () => {
 
 
 	return (
-		<section className='relative mt-20'>
+		<section className='relative mt-20 sm:flex sm:justify-between sm:flex-wrap'>
 			{
 				service.map(el => {
 					return (
-						<Badge.Ribbon
-							text={el.badge}
-							color="gold"
-							key={el.id}
-						>
-							<div
-								className='bg-white rounded-xl mb-10'
+						<div className='mb-10 sm:mb-32 sm:w-5/12 sm:mx-5'>
+							<Badge.Ribbon
+								text={el.badge}
+								color="gold"
+								key={el.id}
 
 							>
 								<div
-									style={{ '--image-url-card': `url(/uploads/${el.img})` }}
-									className={`w-full h-[200px] rounded-t-xl bg-[image:var(--image-url-card)] 
-											  bg-cover bg-center`}
-								/>
-								<div className='px-2 pt-4 pb-5 text-center'>
-									<h4 className='uppercase text-3xl font-semibold mb-3'>
-										{el.h2}
-									</h4>
-									<p className='uppercase mb-2'>
-										{el.description}
-									</p>
-									<p className='mb-2'>
-										<Tag color="gold">{el.subscription}</Tag>
-									</p>
-									<p>
-										{el.info}
-									</p>
-									<p>
-										{el.info2}
-									</p>
-									<p className='uppercase mt-4 mb-2'>Стоимость:</p>
-									<div className='flex justify-evenly'>
-										<span className='font-semibold'>
-											{el.price - (el.price / 100 * el.discount)} руб.
-										</span>
-										<span className='line-through font-light'>
-											{el.price} руб.
-										</span>
-									</div>
+									className='bg-white rounded-xl'
 
-									<ul className='mt-10'>
-										<Paragraph
-											ellipsis={
-												{
-													rows: 4,
-													expandable: true,
-													symbol: 'Подробнее',
+								>
+									<div
+										style={{ '--image-url-card': `url(/uploads/${el.img})` }}
+										className={`w-full h-[200px] rounded-t-xl bg-[image:var(--image-url-card)] 
+											  bg-cover bg-center`}
+									/>
+									<div className='px-2 pt-4 pb-5 text-center'>
+										<h4 className='uppercase text-3xl font-semibold mb-3'>
+											{el.h2}
+										</h4>
+										<p className='uppercase mb-2'>
+											{el.description}
+										</p>
+										<p className='mb-2'>
+											<Tag color="gold">{el.subscription}</Tag>
+										</p>
+										<p>
+											{el.info}
+										</p>
+										<p>
+											{el.info2}
+										</p>
+										<p className='uppercase mt-4 mb-2'>Стоимость:</p>
+										<div className='flex justify-center'>
+											<span className='font-semibold mx-1'>
+												{el.price - (el.price / 100 * el.discount)} руб.
+											</span>
+											<span className='line-through font-light mx-1'>
+												{el.price} руб.
+											</span>
+										</div>
+
+										<ul className='mt-10'>
+											<Paragraph
+												ellipsis={
+													{
+														rows: 4,
+														expandable: true,
+														symbol: 'Подробнее',
+													}
 												}
-											}
-										>
-											{
-												processServerData(el.list).map((item, idx) => {
+											>
+												{
+													processServerData(el.list).map((item, idx) => {
 														return (
 															<li
 																className={`mb-1 text-sm ${idx === 0 ? 'text-sm mb-4' : ''}`}
@@ -138,13 +140,14 @@ export const ServiceComp = () => {
 															</li>
 														)
 													})
-											}
-										</Paragraph>
-									</ul>
+												}
+											</Paragraph>
+										</ul>
 
+									</div>
 								</div>
-							</div>
-						</Badge.Ribbon>
+							</Badge.Ribbon>
+						</div>
 					)
 				})
 			}
