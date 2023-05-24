@@ -1,0 +1,20 @@
+
+PassengerAppRoot "/home/remontpe/minsk"
+PassengerBaseURI "/"
+PassengerNodejs "/home/remontpe/nodevenv/minsk/18/bin/node"
+PassengerAppType node
+PassengerStartupFile server.js
+
+<IfModule mod_rewrite.c>
+  RewriteEngine On
+  RewriteRule ^_next/image(.*)$ /$1 [L]
+  RewriteCond %{REQUEST_FILENAME} !-f
+  RewriteCond %{REQUEST_FILENAME} !-d
+  RewriteRule ^(.*)$ .next/server/pages/$1.html [L]
+  RewriteRule ^$ .next/server/pages/index.html [L]
+  RewriteRule ^api/(.*)$ https://remont-pechej.by/api/$1 [L]
+  RewriteCond %{REQUEST_FILENAME} !-f
+  RewriteCond %{REQUEST_FILENAME} !-d
+  RewriteRule ^(.*)$ /$1.html [L]
+</IfModule>
+
